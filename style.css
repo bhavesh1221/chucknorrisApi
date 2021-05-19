@@ -1,0 +1,7 @@
+.main{
+    position: relative;
+    top: 100px;
+    left: 40%;
+    border: 1px solid black;
+    width: 300px;
+}

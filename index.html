@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <h2 id="mainname">Name:
+            <p id="name">---</p>
+        </h2>
+        <h2 id="mainname">Age:
+            <p id="age">---</p>
+        </h2>
+        <h2 id="mainname">country:
+            <p id="country">---</p>
+        </h2>
+        <h2 id="mainname">address:
+            <p id="address">---</p>
+        </h2>
+       
+    </div>
+<script>
+    fetch('https://randomuser.me/api/')
+    .then(response =>{
+        return response.json()
+    })
+    .then((data) =>{
+        console.log(data);
+       show(data);
+    })
+function show(data){
+   document.getElementById('name').innerText= `${data.results[0].name.title} ${data.results[0].name.first} ${data.results[0].name.last}`;
+   document.getElementById('age').innerText=`${data.results[0].dob.age}`;
+   document.getElementById('country').innerText=`${data.results[0].location.country}`;
+   document.getElementById('address').innerText=`${data.results[0].location.street.name} ${data.results[0].location.street.number}`;
+}
+  </script>
+</body>
+</html>
